@@ -31,7 +31,7 @@ jQuery.fn.jDropWords = function(options) {
    *   jQuery target element.
    */
   function dropElement(srcElt, targetElt) {
-    targetElt = targetElt.filter(srcElt.parents('.jdropwords-container').find('.blank'));
+    targetElt = targetElt.filter(srcElt.parents('.jdropwords-container').find('.blank').not('.active'));
     if (targetElt.length == 0) return;
     // Removes droppable.
     srcElt.draggable( "disable" );
@@ -54,10 +54,10 @@ jQuery.fn.jDropWords = function(options) {
    *   JQuery element.
    */
   function getDroppedElement(srcElt) {
-    var html = '<div class="' + settings.droppedClass + ' clearfix" rel="' + srcElt.attr('id') + '">' +
+    var html = '<span class="' + settings.droppedClass + ' clearfix" rel="' + srcElt.attr('id') + '">' +
       '<span>' + srcElt.html() + '</span>' +
-      '<div class="action"><a href="javascript:void(0);" class="close">x</a></div>' +
-      '</div>';
+      '<span class="action"><a href="javascript:void(0);" class="close">x</a></span>' +
+      '</span>';
     var container = $(html);
     $('a', container).click(function() {
       container.parent().removeClass('active');
