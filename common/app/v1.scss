@@ -1,0 +1,150 @@
+---
+---
+
+$element-color: LightGreen LightSkyBlue Gold HotPink;
+$element-colors: length($element-color);
+
+.jdropwords-wrapper {
+	position: relative;
+
+	.jdropwords {
+		position: absolute;
+		width: 100%;
+	}
+}
+
+.jdropwords {
+	font-size: inherit;
+	font-family: inherit;
+	width: auto;
+
+	.blanks {
+		border: none;
+		padding: 0;
+
+		p {
+			.blank {
+				height: 1em;
+
+				&.active {
+					background-color: transparent !important;
+				}
+			}
+
+			.dropped .action > a {
+				font-size: 90%;
+			}
+		}
+	}
+
+	.words .word {
+		margin: 3px 0;
+	}
+}
+
+.word-swap {
+	position: relative;
+	display: inline-block;
+
+	.word-swap-item {
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		overflow: hidden;
+	}
+
+	@for $i from 0 to $element-colors {
+		&.element-#{$i} {
+			background-color: nth($element-color, $i + 1);
+		}
+	}
+}
+
+.image {
+	display: inline-block !important;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	@for $i from 0 to $element-colors {
+		&.element-#{$i} {
+			background-color: nth($element-color, $i + 1);
+			border-color: nth($element-color, $i + 1);
+		}
+	}
+}
+
+.image-swap {
+	position: relative;
+
+	.image-swap-item {
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		overflow: hidden;
+
+		.image {
+			width: 4em;
+			height: 4em;
+
+			&.element {
+				border: .4em solid transparent;
+				border-radius: .4em;
+			}
+		}
+	}
+}
+
+.audio-swap {
+	position: relative;
+
+	.audio-fragment {
+		position: absolute;
+	}
+
+	.audio-swap-placeholder {
+		visibility: hidden;
+	}
+}
+
+.jdropwords {
+	.image {
+		width: 3em;
+		height: 3em;
+
+		&.element {
+			border: .2em solid transparent;
+			border-radius: .2em;
+		}
+	}
+
+	.blanks {
+		p span {
+			@for $i from 0 to $element-colors {
+				&.element-#{$i} {
+					background-color: nth($element-color, $i + 1);
+				}
+			}
+		}
+	}
+
+	.words {
+		@for $i from 0 to $element-colors {
+			.element-#{$i} {
+				color: nth($element-color, $i + 1);
+			}
+		}
+	}
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+div.audio-click {
+	cursor: pointer;
+}
+
+.progress {
+	pointer-events: none;
+}

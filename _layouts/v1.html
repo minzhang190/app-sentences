@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>{{ page.title }}</title>
+
+		<link rel="stylesheet" href="../common/reveal.js-4.0.0/dist/reset.css">
+		<link rel="stylesheet" href="../common/reveal.js-4.0.0/dist/reveal.css">
+		<link rel="stylesheet" href="../common/reveal.js-4.0.0/dist/theme/{{ page.theme | default: "white" }}.css">
+
+		<script src="../common/jdropwords/js/jquery-1.8.3.min.js"></script>
+		<script src="../common/jdropwords/js/jquery-ui-1.9.2.custom.min.js"></script>
+		<script src="../common/jdropwords/js/jdropwords.js"></script>
+
+		<link type="text/css" rel="stylesheet" href="../common/jdropwords/css/jdropwords.css" media="all" />
+
+		<link type="text/css" rel="stylesheet" href="../common/app/v1.css" media="all" />
+
+		{% if site.google_analytics %}
+			<script>
+				var gaPropertyID = '{{ site.google_analytics }}';
+			</script>
+		{% endif %}
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				{{ content }}
+			</div>
+		</div>
+
+		<script src="../common/reveal.js-4.0.0/dist/reveal.js"></script>
+
+		<script src="../common/app/v1.js"></script>
+	</body>
+</html>
